@@ -72,6 +72,10 @@ nav {
     text-decoration: none;
     text-transform: lowercase;
 }
+.hmdisplay {
+	color: #b91d22 !important;
+	text-decoration: underline !important;
+}
 p#browse {
 	font-size: 11px;
 }
