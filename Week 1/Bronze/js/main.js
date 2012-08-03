@@ -1,14 +1,14 @@
-// Week 4, Project 4
+// Week 1, Project 1
 // David Tyler Kneisly
-// VFW 1205
-// Book Tracker
+// MIU 1208
+// Theater Tracker
 
 // Wait until the DOM is ready
 window.addEventListener('DOMContentLoaded', function() {
 
 
 	// getElementById Function
-	function $(x) {
+	function ge(x) {
 		var theElement = document.getElementById(x);
 		return theElement;
 	}
@@ -17,12 +17,12 @@ window.addEventListener('DOMContentLoaded', function() {
 	function makeCats () {
 		var formTag = document.getElementsByTagName('form'),
 		// This will become an array of all the form tags in the additem.html doc.
-		selectLi = $('select'),
+		selectLi = ge('select'),
 		makeSelect = document.createElement('select');
 		makeSelect.setAttribute('id', 'groups');
-		for (var i=0, j=bookGroups.length; i < j; i++) {
+		for (var i=0, j=theaterGroups.length; i < j; i++) {
 			var makeOption = document.createElement('option');
-			var optText = bookGroups[i];
+			var optText = theaterGroups[i];
 			makeOption.setAttribute('value', optText);
 			makeOption.innerHTML = optText;
 			makeSelect.appendChild(makeOption);
@@ -42,8 +42,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	// Find value of selected checkboxes.
 	function getCheckboxValue() {
-		if ($('favorite').checked) {
-			favoriteValue = $('favorite').value;
+		if (ge('favorite').checked) {
+			favoriteValue = ge('favorite').value;
 		} else {
 			favoriteValue = "No";
 		}
@@ -53,17 +53,17 @@ window.addEventListener('DOMContentLoaded', function() {
 	function toggleControls(n) {
 		switch(n) {
 			case 'on':
-				$('bookForm').style.display = "none";
-				$('clear').style.display = "inline";
-				$('display').style.display = "none";
-				$('addNew').style.display = "inline";
+				ge('theaterForm').style.display = "none";
+				ge('clear').style.display = "inline";
+				ge('display').style.display = "none";
+				ge('addNew').style.display = "inline";
 				break;
 			case 'off':
-				$('bookForm').style.display = "block";
-				$('clear').style.display = "inline";
-				$('display').style.display = "inline";
-				$('addNew').style.display = "none";
-				$('items').style.display = "none";
+				ge('theaterForm').style.display = "block";
+				ge('clear').style.display = "inline";
+				ge('display').style.display = "inline";
+				ge('addNew').style.display = "none";
+				ge('items').style.display = "none";
 				break;
 			default:
 				return false;
@@ -72,32 +72,25 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	// Store Data
 	function storeData(key) {
-		// Only generate a new key if it is a new item.
-		// If there is no key, this is a new item and needs a new key
 		if(!key) {
 			var id = Math.floor(Math.random()*100000001);
 		} else {
-			// Set the id to the existing key if the item is being edited
-			// From here, key is passed to the validate function, then into storeData
 			id = key;
 		}
 		getSelectedRadio();
 		getCheckboxValue();
-		// Gather up all the form field values and store in an object.
-		// Object properties contain an array with the form label and input values
 		var item = {};
-		item.groups = ['Group:', $('groups').value];
-		item.titles = ['Title:', $('booktitle').value];
-		item.authors = ['Author:', $('author').value];
-		item.readpages = ['Pages:', $('pages').value];
-		item.datefinished = ['Date Finished:', $('date').value];
-		item.rating = ['Rating:', $('rating').value];
+		item.groups = ['Group:', ge('groups').value];
+		item.theaters = ['Theater:', ge('theatername').value];
+		item.movies = ['Movie:', ge('movie').value];
+		item.theaternums = ['Theater #:', ge('theaternum').value];
+		item.datevisited = ['Date Visited:', ge('date').value];
+		item.rating = ['Rating:', ge('rating').value];
 		item.category = ['Genre:', genreValue];
 		item.favs = ['Favorite:', favoriteValue];
-		item.note = ['Notes:', $('notes').value];
+		item.note = ['Notes:', ge('notes').value];
 		localStorage.setItem(id, JSON.stringify(item));
-		// Data is saved into Local Storage; Using 'Stringify' to convert the object into a string
-		alert('Book is saved!');
+		alert('Theater is saved!');
 		window.location.reload();
 		return false;
 	}
@@ -105,14 +98,11 @@ window.addEventListener('DOMContentLoaded', function() {
 	// Show Data
 	function showData () {
 		if (localStorage.length === 0) {
-			alert('No saved books.  Default data was added.');
+			alert('No saved theaters.  Default data was added.');
 			autoFillData();
 			toggleControls('off');
 		} else {
-			// Moved toggleControls to the 'else' statement to avoid disabling the form if there are no saved books to display
 			toggleControls('on');
-			// Write data from Local Storage to browser
-			// The next 4 lines create a container (div & ul) for writing data to
 			var makeDiv = document.createElement('div');
 			makeDiv.setAttribute('id', 'items');
 			var makeList = document.createElement('ul');
@@ -170,7 +160,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		var editLink = document.createElement('a');
 		editLink.href = "#";
 		editLink.key = key;
-		var editText = "Edit Book";
+		var editText = "Edit Theater";
 		editLink.addEventListener('click', editItem);
 		editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
@@ -183,7 +173,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		var deleteLink = document.createElement('a');
 		deleteLink.href = "#";
 		deleteLink.key = key;
-		var deleteText = "Delete Book";
+		var deleteText = "Delete Theater";
 		deleteLink.addEventListener('click', deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
@@ -199,13 +189,13 @@ window.addEventListener('DOMContentLoaded', function() {
 		toggleControls('off');
 
 		// Populate the form fields with current localStorage values.
-		$('groups').value = item.groups[1];
-		$('booktitle').value = item.titles[1];
-		$('author').value = item.authors[1];
-		$('pages').value = item.readpages[1];
-		$('date').value = item.datefinished[1];
-		$('level').value = item.rating[1];
-		$('rating').value = item.rating[1];
+		ge('groups').value = item.groups[1];
+		ge('theatername').value = item.movies[1];
+		ge('movie').value = item.theaters[1];
+		ge('theaternum').value = item.theaternums[1];
+		ge('date').value = item.datevisited[1];
+		ge('level').value = item.rating[1];
+		ge('rating').value = item.rating[1];
 		var radios = document.forms[0].genre;
 		for (var i=0; i < radios.length; i++) {
 			if (radios[i].value == "Science-Fiction" && item.category[1] == "Science-Fiction") {
@@ -214,26 +204,22 @@ window.addEventListener('DOMContentLoaded', function() {
 				radios[i].setAttribute('checked', 'checked');
 			} else if (radios[i].value == "Thriller" && item.category[1] == "Thriller") {
 				radios[i].setAttribute('checked', 'checked');
-			} else if (radios[i].value == "Classic" && item.category[1] == "Classic") {
+			} else if (radios[i].value == "Drama" && item.category[1] == "Drama") {
 				radios[i].setAttribute('checked', 'checked');
-			} else if (radios[i].value == "Periodical" && item.category[1] == "Periodical") {
+			} else if (radios[i].value == "Indie" && item.category[1] == "Indie") {
 				radios[i].setAttribute('checked', 'checked');
-			} else if (radios[i].value == "Non-Fiction" && item.category[1] == "Non-Fiction") {
+			} else if (radios[i].value == "Action" && item.category[1] == "Action") {
 				radios[i].setAttribute('checked', 'checked');
 			}
 
 		}
 		if (item.favs[1] == "Yes") {
-			$('favorite').setAttribute('checked', 'checked');
+			ge('favorite').setAttribute('checked', 'checked');
 		}
-		$('notes').value = item.note[1];
-
-		// Remove the initial listener from the input 'Save Book'
-		saveBook.removeEventListener('click', storeData);
-		// Change the submit button value to say 'Edit
-		$('submit').value = "Save Edits";
-		var editSubmit = $('submit');
-		// Save the key value as a property of the editSubmit event
+		ge('notes').value = item.note[1];
+		saveTheater.removeEventListener('click', storeData);
+		ge('submit').value = "Save Edits";
+		var editSubmit = ge('submit');
 		editSubmit.addEventListener('click', validate);
 		editSubmit.key = this.key;
 	}
@@ -246,78 +232,78 @@ window.addEventListener('DOMContentLoaded', function() {
 			alert("Deleted!");
 			window.location.reload();
 		} else {
-			alert("The book is still saved!");
+			alert("The theater is still saved!");
 		}
 	}
 
 	// Clear Data
 	function clearData() {
 		if(localStorage.length === 0) {
-			alert('No books to clear');
+			alert('No theaters to clear');
 			scrollTo(0,0);
 		} else {
 			var ask = confirm("Are you sure you want to clear all data?");
 			if(ask) {
-				alert('All books deleted');
+				alert('All theaters deleted');
 				window.location.reload();
 				localStorage.clear();
 				return false;
 			} else {
-				alert("Your books are still saved!");
+				alert("Your theaters are still saved!");
 			}			
 		}
 	}
 
 	function validate(e) {
 		// Define the elements to be checked
-		var getGroup = $('groups');
-		var getTitle = $('booktitle');
-		var getAuthor = $('author');
-		var getPages = $('pages');
-		var getDate = $('date');
-		var errorBox = $('errors');
+		var getGroup = ge('groups');
+		var getTheater = ge('theatername');
+		var getMovie = ge('movie');
+		var getTheaterNum = ge('theaternum');
+		var getDate = ge('date');
+		var errorBox = ge('errors');
 
 		// Reset the Error Mesages
 		errMsg.innerHTML = "";
 		getGroup.style.border = "1px solid black";
-		getTitle.style.border = "1px solid black";
-		getAuthor.style.border = "1px solid black";
-		getPages.style.border = "1px solid black";
+		getTheater.style.border = "1px solid black";
+		getMovie.style.border = "1px solid black";
+		getTheaterNum.style.border = "1px solid black";
 		getDate.style.border = "1px solid black";
 		errorBox.style.border = "1px solid #aaa";
 
 		// Get error messages
 		var messageAry = [];
 		// Group Validation
-		if(getGroup.value === "--Choose a Source--") {
-			var groupError = "Please choose a source.";
+		if(getGroup.value === "--Choose a chain--") {
+			var groupError = "Please choose a theater chain.";
 			getGroup.style.border = "1px solid #ff8e33";
 			errorBox.style.border = "1px solid #ff8e33";
 			messageAry.push(groupError);
 		}
 		// Title Validation (RegExp)
-		if(getTitle.value === "") {
-			var titleError = "Please enter a book title.";
-			getTitle.style.border = "1px solid #ff8e33";
+		if(getTheater.value === "") {
+			var theaterError = "Please enter a theater name.";
+			getTheater.style.border = "1px solid #ff8e33";
 			errorBox.style.border = "1px solid #ff8e33";
-			messageAry.push(titleError);
+			messageAry.push(theaterError);
 		}
 		// Author Validation
-		if(getAuthor.value === "") {
-			var authorError = "Please enter an author's name.";
-			getAuthor.style.border = "1px solid #ff8e33";
+		if(getMovie.value === "") {
+			var movieError = "Please enter a movie name.";
+			getMovie.style.border = "1px solid #ff8e33";
 			errorBox.style.border = "1px solid #ff8e33";
-			messageAry.push(authorError);
+			messageAry.push(movieError);
 		}
 		// Pages Validation
-		if(getPages.value === "") {
-			var pagesError = "Please enter the # of pages.";
-			getPages.style.border = "1px solid #ff8e33";
+		if(getTheaterNum.value === "") {
+			var numError = "Please enter the theater #.";
+			getTheaterNum.style.border = "1px solid #ff8e33";
 			errorBox.style.border = "1px solid #ff8e33";
-			messageAry.push(pagesError);
+			messageAry.push(numError);
 		}
 		// Date Validation using RegEx
-		var re = /^[12][09][\d][\d]-[01]?[\d]-[0-3]?[\d]$/;
+		var re = /^[\d][\d][\d][\d]-[01]?[\d]-[0-3]?[\d]$/;
 		if(!(re.exec(getDate.value))) {
 			var dateError = "Please enter a valid date.";
 			getDate.style.border = "1px solid #ff8e33";
@@ -336,33 +322,27 @@ window.addEventListener('DOMContentLoaded', function() {
 			e.preventDefault();
 			return false;
 		} else {
-			// Save data if all the above if conditions are ok
-			// As local storage is being looped through, the key is saved as a property to a variable
-			// The current loop's iteration of the key property is passed here.
-			// Send the key value back to local storage
 			storeData(this.key);
 		}
 	}
 
 	// Defaults for Variables
 	var 
-	bookGroups = ["--Choose a Source--", "Book", "EReader", "Tablet", "Online"],
+	theaterGroups = ["--Choose a chain--", "Regal", "AMC", "IMAX", "Privately Owned"],
 	genreValue,
 	favoriteValue = "No",
-	errMsg = $('errors'),
+	errMsg = ge('errors'),
 	level
 	;
 	
 	makeCats();
 	
-	var displayBooks = $('display');
-	displayBooks.addEventListener('click', showData);
-	var clearBooks = $('clear');
-	clearBooks.addEventListener('click', clearData);
-	// The saveBook variable now it instructs the validate function to be triggered first.
-	var saveBook = $('submit');
-	saveBook.addEventListener('click', validate);
-	// Hides the address bar when page loads.
+	var displayTheaters = ge('display');
+	displayTheaters.addEventListener('click', showData);
+	var clearTheaters = ge('clear');
+	clearTheaters.addEventListener('click', clearData);
+	var saveTheater = ge('submit');
+	saveTheater.addEventListener('click', validate);
 	var hideAddress = window.scrollTo(0,0);
 	window.addEventListener('load', hideAddress);
 });
