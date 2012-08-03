@@ -72,10 +72,13 @@ nav {
     text-decoration: none;
     text-transform: lowercase;
 }
+<<<<<<< HEAD
 .hmdisplay {
 	color: #b91d22 !important;
 	text-decoration: underline !important;
 }
+=======
+>>>>>>> miuwk1
 p#browse {
 	font-size: 11px;
 }
