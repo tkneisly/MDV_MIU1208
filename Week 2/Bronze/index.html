@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Week 2, Project 2 -->
+<!-- David Tyler Kneisly -->
+<!-- MIU 1208 -->
+<!-- Movie Night -->
+<html lang="en">
+	<!-- HTML DOCUMENT HEADER -->
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="additem page for the Movie Night web app project for MIU 1208." />
+		<meta name="keywords" content="html5, mobile development, Full Sail University, Movies, Theaters, Rating, Tracker, Track" />
+		<meta name="robots" content="index, follow" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<meta name="HandHeldFriendly" content="True" />
+		<meta name="MobileOptimized" content="320" />
+		<meta name="author" content="David Tyler Kneisly" />
+		<title>David Kneisly:  Movie Night</title>
+		<link href='http://fonts.googleapis.com/css?family=Henny+Penny|Contrail+One|Creepster|Bangers' rel='stylesheet' type='text/css'>
+		<link href="css/styles.css" rel="stylesheet" type="text/css" />
+	</head>
+	<!-- Document Body -->
+	<body style="background-image:url(images/screen.png)" alt="Loading the Reels">
+		<section class="header" >
+			<header>
+				<h1>Movie Night</h1>
+			</header>
+		</section>
+		<section class="cta">
+			<div id="featurestack">
+				<a href = "additem.html"><p id="function">Go to the Movies!</p> </a>
+				<h5>Click to find a friend for the movies</h5>
+			</div>
+		</section>
+		<section class="content">
+			<div id="searchstack">
+				<input type="search" class="search" name="s" id="s" placeholder="Search saved books..." results="5" autosave="search_history" />
+				<input type="submit" class="submit" value="Go" id="searchsub" />
+			</div>
+			<div id="browsestack">
+				<li id="browse">What genre are you in the mood for?</li>
+				<li id="browsing"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Sci-Fi%2fFantasy">Science-Fiction</a></li>
+				<li id="browsing"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Sci-Fi%2fFantasy">Fantasy</a></li>
+				<li id="browsing"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Suspense%2fThriller">Thriller</a></li>
+				<li id="browsing"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Drama">Drama</a></li>
+				<li id="browsing"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Art+House%2fForeign">Indie</a></li>
+				<li id="browsing"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Action%2fAdventure">Action</a></li>
+			</div>
+		</section>
+		<script>
+			window.onload=scrollTo(0,1);
+		</script>
+	</body>
+</html>
