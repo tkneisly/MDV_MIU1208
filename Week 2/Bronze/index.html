@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- Week 2, Project 2 -->
+<!-- David Tyler Kneisly -->
+<!-- MUI 1208 -->
+<!-- Book Tracker -->
+<!-- Bronze Index.html -->
+
+<html lang="en">
+	<!-- HTML DOCUMENT HEADER -->
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="additem page for the Movie Night web app project for MIU 1208." />
+		<meta name="keywords" content="html5, mobile development, Full Sail University, Movies, Theaters, Rating, Tracker, Track" />
+		<meta name="robots" content="index, follow" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<meta name="HandHeldFriendly" content="True" />
+		<meta name="MobileOptimized" content="320" />
+		<meta name="author" content="David Tyler Kneisly" />
+		<title>David Kneisly:  Movie Night</title>
+		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" />
+		<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" /> 
+		<link href='http://fonts.googleapis.com/css?family=Henny+Penny|Contrail+One|Creepster|Bangers' rel='stylesheet' type='text/css'>
+		<link href="css/styles.css" rel="stylesheet" type="text/css" />
+		<script src="js/libs/modernizr.custom.min.js"></script>
+	</head>
+	
+	<!-- Document Body -->
+	<body>
+		<div>
+			<!-- Start of Home Page -->
+			<div data-role="page" id="home" class="headerstyle" style="background-image:url(images/Screen.png)">
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false">
+					<h1>Movie Night</h1>
+				</div>
+				<!-- Page Content "CTA"-->
+				<div data-role="content">
+					<a href="additem.html" class="topbrowse" data-ajax="false">
+						<div>
+							<p class="function">Go to the Movies!</p>
+							<h5 class="subfunction">Click to find a friend for the movies</h5>
+						</div>
+					</a>
+					<div data-role="content" data-theme="b" class="topbrowse bottombrowse">
+						...or click below to browse
+						<a href="#Genres" data-role="button" data-theme="d" data-transition="slide" id="brbutton">View Movies by Genre</a>
+						<br><br><br>
+					</div>
+				</div>
+				<!-- Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" id="nav_footer_home">
+					<!-- Page Content "Browse Button" -->
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false" class="navbar" id="navbar_home" >
+						<ul>
+							<li><a href="#home" class="ui-btn-active">Home</a></li>
+							<li><a href="http://m.kissr.com">GH-Pages</a></li>
+							<li><a href="../Gold/index.html">Gold App</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- End of Home Page -->
+						
+			
+			<!-- Start of #Genres 'Single-Page Drill-Down' -->
+			<div data-role="page" id="Genres" class="headerstyle" style="background-image:url(images/Screen.png)">
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false">
+					<h1>Movie Night</h1>
+				</div>
+				<!-- Page Content "CTA"-->
+				<div data-role="content">
+					<a href="index.html" class="topbrowse">
+						<div>
+							<p class="function">Browse by Genre</p>
+							<h5 class="subfunction">or click here to go back</h5>
+						</div>
+					</a>
+				</div>
+				<!-- Page Content "Narrow Browse Results By Genre" -->
+				<div data-role="content" class="body">
+					<ul class="browse" data-role="listview" data-inset="true" data-dividertheme="b">
+						<li data-role="list-divider" class="listheader">Pick a genre...</li>
+						<li data-theme="c" class="genreli"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Sci-Fi%2fFantasy" data-transition="slide">Science-Fiction</a></li>
+						<li data-theme="c" class="genreli"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Sci-Fi%2fFantasy" data-transition="slide">Fantasy</a></li>
+						<li data-theme="c" class="genreli"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Suspense%2fThriller" data-transition="slide">Thriller</a></li>
+						<li data-theme="c" class="genreli"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Drama" data-transition="slide">Drama</a></li>
+						<li data-theme="c" class="genreli"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Art+House%2fForeign" data-transition="slide">Indie</a></li>
+						<li data-theme="c" class="genreli"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Action%2fAdventure" data-transition="slide">Action</a></li>
+					</ul>
+				</div>			
+				<!-- Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" class="nav_footer" id="nav_footer_genres">
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false" class="navbar" id="navbar_genres">
+						<ul>
+							<li><a href="#home" data-transition="slide" data-direction="reverse">Home</a></li>
+							<li><a href="additem.html" data-transition="slideup">Add New</a></li>
+							<li><a href="allitems.html" class="viewall" id="allitemslink" data-transition="slide">View All</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- End of #Genres page -->
+		</div>
+		<!-- End of #Results page. -->
+		<!-- JavaScript Links -->
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> 
+		<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+<!-- End of Document -->
+</html>

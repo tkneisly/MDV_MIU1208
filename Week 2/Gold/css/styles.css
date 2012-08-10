@@ -1,0 +1,61 @@
+/*
+ * Week 2, Project 2 
+ * David Tyler Kneisly 
+ * MUI 1208
+ * Movie Night
+ * Gold Style Sheet
+ */
+ 
+ h1 {
+	/* Font for .ui-header */
+	/*font-family: 'Rancho', cursive;*/
+	font-size: 20px !important;
+	margin-top: 3px !important;
+	margin-bottom: 3px !important;
+	color: #2a2a2a;
+	text-shadow: 1px 1px 1px #fff;
+}
+a {
+    outline: none;
+    color: black;
+    text-decoration: none;
+}
+p.function {
+	font-family: 'Henny Penny', cursive;
+	color: black;
+	font-size: 34px;
+	font-weight: lighter;
+	font-stretch: ultra-condensed;
+	text-shadow: 1px 1px 1px #999999;
+	margin: 25px 0px 5px 0px;
+}
+.subfunction {
+	margin: 0px 0px 70px 0px;
+}
+h5 {
+	position: relative;
+	font-family: Helvetica;
+	color: black;
+	font-weight: lighter;
+	margin: 0px 0px 0px 0px;
+}
+
+.headerstyle {
+	/* Positions the background Ribbon and sets the background color */
+	margin-top: -25px;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position-x: center;
+	background-position-y: 0px;
+	background-size: 125% 65%;
+	background-color: #9a9a9a;
+}
+.topbrowse {
+	color: black;
+	text-align: center;
+}
+.bottombrowse {
+margin: 0px -15px 0px -15px;
+padding-top: -10px;
+padding-bottom: 40px;
+}
