@@ -2,7 +2,7 @@
 <!-- Week 2, Project 2 -->
 <!-- David Tyler Kneisly -->
 <!-- MUI 1208 -->
-<!-- Book Tracker -->
+<!-- Movie Night -->
 <!-- Bronze Index.html -->
 
 <html lang="en">
@@ -27,12 +27,13 @@
 	<!-- Document Body -->
 	<body>
 		<div>
-			<!-- Start of Home Page -->
-			<div data-role="page" id="home" class="headerstyle" style="background-image:url(images/Screen.png)">
+			<!-- !Start of Main Page -->
+			<div data-role="page" id="Main" class="headerstyle" style="background-image:url(images/Screen.png)">
 				<!-- Header -->
 				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false">
 					<h1>Movie Night</h1>
 				</div>
+				
 				<!-- Page Content "CTA"-->
 				<div data-role="content">
 					<a href="additem.html" class="topbrowse" data-ajax="false">
@@ -43,66 +44,170 @@
 					</a>
 					<div data-role="content" data-theme="b" class="topbrowse bottombrowse">
 						...or click below to browse
-						<a href="#Genres" data-role="button" data-theme="d" data-transition="slide" id="brbutton">View Movies by Genre</a>
-						<br><br><br>
+						<a href="#InTheaters" data-role="button" data-theme="d" data-transition="slide" id="brbutton">Movies in theaters now</a>
+						<a href="#AllMovies" data-role="button" data-theme="d" data-transition="slide" id="brbutton">Browse all movies</a>
 					</div>
 				</div>
-				<!-- Footer -->
+				
+				<!-- !Main Page Footer -->
 				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" id="nav_footer_home">
 					<!-- Page Content "Browse Button" -->
-					<div data-role="navbar" data-position="fixed" data-tap-toggle="false" class="navbar" id="navbar_home" >
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false" class="navbar" id="nav_home" >
 						<ul>
-							<li><a href="#home" class="ui-btn-active">Home</a></li>
+							<li><a href="#Main" class="ui-btn-active">Home</a></li>
 							<li><a href="http://m.kissr.com">GH-Pages</a></li>
-							<li><a href="../Gold/index.html">Gold App</a></li>
+							<li><a href="../Bronze/index.html">Bronze App</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 			<!-- End of Home Page -->
-						
 			
-			<!-- Start of #Genres 'Single-Page Drill-Down' -->
-			<div data-role="page" id="Genres" class="headerstyle" style="background-image:url(images/Screen.png)">
+			
+			<!-- !Start of #AllMovies page -->
+			<div data-role="page" id="AllMovies" class="headerstyle" style="background-image:url(images/Screen.png)">
 				<!-- Header -->
 				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false">
 					<h1>Movie Night</h1>
 				</div>
-				<!-- Page Content "CTA"-->
+				<!-- Page Content "CTA" -->
 				<div data-role="content">
-					<a href="index.html" class="topbrowse">
+					<a href="#Main" data-rel="back" class="topbrowse">
 						<div>
-							<p class="function">Browse by Genre</p>
+							<p class="function">In Theaters</p>
 							<h5 class="subfunction">or click here to go back</h5>
 						</div>
 					</a>
 				</div>
-				<!-- Page Content "Narrow Browse Results By Genre" -->
+				
+				<!-- Page Content "Narrow Browse Results by Type" -->
 				<div data-role="content" class="body">
 					<ul class="browse" data-role="listview" data-inset="true" data-dividertheme="b">
-						<li data-role="list-divider" class="listheader">Pick a genre...</li>
-						<li data-theme="c" class="genreli"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Sci-Fi%2fFantasy" data-transition="slide">Science-Fiction</a></li>
-						<li data-theme="c" class="genreli"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Sci-Fi%2fFantasy" data-transition="slide">Fantasy</a></li>
-						<li data-theme="c" class="genreli"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Suspense%2fThriller" data-transition="slide">Thriller</a></li>
-						<li data-theme="c" class="genreli"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Drama" data-transition="slide">Drama</a></li>
-						<li data-theme="c" class="genreli"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Art+House%2fForeign" data-transition="slide">Indie</a></li>
-						<li data-theme="c" class="genreli"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Action%2fAdventure" data-transition="slide">Action</a></li>
+						<li data-role="list-divider" class="listheader">Begin by picking a genre...</li>
+						<li data-theme="c" class="genreli"><a href="#InTheaters" data-transition="slide" id="aBook">Sci-Fi</a></li>
+						<li data-theme="c" class="genreli"><a href="#InTheaters" data-transition="slide" id="aEReader">Thriller</a></li>
+						<li data-theme="c" class="genreli"><a href="#InTheaters" data-transition="slide" id="aTablet">Action</a></li>
+						<li data-theme="c" class="genreli"><a href="#InTheaters" data-transition="slide" id="aOnline">Drama</a></li>
 					</ul>
-				</div>			
+				</div>
+				
 				<!-- Footer -->
-				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" class="nav_footer" id="nav_footer_genres">
-					<div data-role="navbar" data-position="fixed" data-tap-toggle="false" class="navbar" id="navbar_genres">
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" id="nav_allmovies">
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false">
 						<ul>
-							<li><a href="#home" data-transition="slide" data-direction="reverse">Home</a></li>
-							<li><a href="additem.html" data-transition="slideup">Add New</a></li>
-							<li><a href="allitems.html" class="viewall" id="allitemslink" data-transition="slide">View All</a></li>
+							<li><a href="#Main" data-transition="slide" data-direction="reverse">Home</a></li>
+							<li><a href="http://m.kissr.com">GH-Pages</a></li>
+							<li><a href="../Bronze/index.html">Bronze App</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
-			<!-- End of #Genres page -->
+			<!-- !End of #AllMovies page -->
+			
+			
+			<!-- !Start of #InTheaters page -->
+			<div data-role="page" id="InTheaters" class="headerstyle" style="background-image:url(images/Screen.png)">
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false">
+					<a href="#Main" data-transition="slide" data-direction="reverse" data-icon="back">Back</a>
+					<h1>Movie Night</h1>
+				</div>
+				<!-- Page Content "CTA" -->
+				<div data-role="content">
+					<a href="#Main" data-rel="back" class="topbrowse">
+						<div>
+							<p class="function">In Theaters</p>
+							<h5 class="subfunction">or click here to go back</h5>
+						</div>
+					</a>
+				</div>
+				
+				<!-- Page Content "View and Search Browse Results" -->
+				<div data-role="content" class="body">
+					<ul class="browse" data-role="listview" data-dividertheme="a" data-filter="true" id="resultlist">
+						<!-- List divider/header with dynamic links -->
+						<li data-role="list-divider" class="listheader" id="showbrwstype">
+							<span>Viewing: Movies in Theaters</span>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Movies/Anonymous.jpeg" class="showimg" alt="Movie Poster" />
+							<h3 class="showtitle">Anonymous</h3>
+							<p>
+								<span>Rated: PG-13</span>
+								<span> | </span>
+								<span>Runtime: 130 mins</span>
+							</p>
+							<p>
+								<span>Release: 2011-09-11</span>
+							</p>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Movies/BlackSwan.jpeg" class="showimg" alt="Movie Poster" />
+							<h3 class="showtitle">Black Swan</h3>
+							<p>
+								<span>Rated: R</span>
+								<span> | </span>
+								<span>Runtime: 108 mins</span>
+							</p>
+							<p>
+								<span>Release: 2010-12-02</span>
+							</p>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Movies/HotFuzz.jpeg" class="showimg" alt="Movie Poster" />
+							<h3 class="showtitle">Hot Fuzz</h3>
+							<p>
+								<span>Rated: R</span>
+								<span> | </span>
+								<span>Runtime: 121 mins</span>
+							</p>
+							<p>
+								<span>Release: 2007-02-14</span>
+							</p>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Movies/IronMan.jpeg" class="showimg" alt="Movie Poster" />
+							<h3 class="showtitle">Iron Man</h3>
+							<p>
+								<span>Rated: PG-13</span>
+								<span> | </span>
+								<span>Runtime: 126</span>
+							</p>
+							<p>
+								<span>Release: 2008-05-02</span>
+							</p>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Movies/Titanic.jpeg" class="showimg" alt="Movie Poster" />
+							<h3 class="showtitle">Titanic</h3>
+							<p>
+								<span>Rated PG-13</span>
+								<span> | </span>
+								<span>Runtime: 194</span>
+							</p>
+							<p>
+								<span>Release: 1997-12-19</span>
+							</p>
+						</li>
+					</ul>
+				</div>
+				
+				<!-- Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" id="nav_intheaters">
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false">
+						<ul>
+							<li><a href="#Main" data-transition="slide" data-direction="reverse">Home</a></li>
+							<li><a href="http://m.kissr.com">GH-Pages</a></li>
+							<li><a href="../Bronze/index.html">Bronze App</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- End of #InTheaters page -->
 		</div>
-		<!-- End of #Results page. -->
+		<!-- !End of Index.html -->
+		
+		
 		<!-- JavaScript Links -->
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> 
 		<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>

@@ -27,6 +27,7 @@ $('#showItems').bind('pagebeforechange', function(e, data){
 	
 });
 
+
 // The below script is loaded into DOM when addItem.html is initialized
 $(document).bind('pageinit', function(){
 
@@ -259,8 +260,6 @@ $(document).bind('pageinit', function(){
 	$('.viewall').click(function() {
 		checkUserData()
 	})
-	
-	
 	
 	
 });

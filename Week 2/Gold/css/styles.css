@@ -9,9 +9,7 @@
  h1 {
 	/* Font for .ui-header */
 	/*font-family: 'Rancho', cursive;*/
-	font-size: 20px !important;
-	margin-top: 3px !important;
-	margin-bottom: 3px !important;
+	font-size: 20px;
 	color: #2a2a2a;
 	text-shadow: 1px 1px 1px #fff;
 }
@@ -39,10 +37,9 @@ h5 {
 	font-weight: lighter;
 	margin: 0px 0px 0px 0px;
 }
-
 .headerstyle {
-	/* Positions the background Ribbon and sets the background color */
-	margin-top: -25px;
+	/* Positions the background image and sets the background color */
+	margin-top: 0px;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position-x: center;
@@ -58,4 +55,8 @@ h5 {
 margin: 0px -15px 0px -15px;
 padding-top: -10px;
 padding-bottom: 40px;
+}
+.ui-grid-b img {
+    width  : 100%;
+    height : auto;
 }
