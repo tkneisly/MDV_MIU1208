@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <!-- Week 2, Project 2 -->
 <!-- David Tyler Kneisly -->
-<!-- MIU 1208 -->
+<!-- MUI 1208 -->
 <!-- Movie Night -->
+<!-- Gold Index.html -->
+
 <html lang="en">
 	<!-- HTML DOCUMENT HEADER -->
 	<head>
@@ -15,39 +17,250 @@
 		<meta name="MobileOptimized" content="320" />
 		<meta name="author" content="David Tyler Kneisly" />
 		<title>David Kneisly:  Movie Night</title>
+		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" />
+		<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" /> 
 		<link href='http://fonts.googleapis.com/css?family=Henny+Penny|Contrail+One|Creepster|Bangers' rel='stylesheet' type='text/css'>
 		<link href="css/styles.css" rel="stylesheet" type="text/css" />
+		<script src="js/libs/modernizr.custom.min.js"></script>
 	</head>
+	
 	<!-- Document Body -->
-	<body style="background-image:url(images/screen.png)" alt="Loading the Reels">
-		<section class="header" >
-			<header>
-				<h1>Movie Night</h1>
-			</header>
-		</section>
-		<section class="cta">
-			<div id="featurestack">
-				<a href = "additem.html"><p id="function">Go to the Movies!</p> </a>
-				<h5>Click to find a friend for the movies</h5>
+	<body>
+		<div>
+			<!-- !Start of Main Page -->
+			<div data-role="page" id="Main" class="headerstyle" style="background-image:url(images/Screen.png)">
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false">
+					<h1>Movie Night</h1>
+				</div>
+				
+				<!-- Page Content "CTA"-->
+				<div data-role="content">
+					<a href="additem.html" class="topbrowse" data-ajax="false">
+						<div>
+							<p class="function">Go to the Movies!</p>
+							<h5 class="subfunction">Click to find a friend for the movies</h5>
+						</div>
+					</a>
+					<div data-role="content" data-theme="b" class="topbrowse bottombrowse">
+						...or click below to browse
+						<a href="#InTheaters" data-role="button" data-theme="d" data-transition="slide" id="brbutton">Movies in theaters now</a>
+						<a href="#AllMovies" data-role="button" data-theme="d" data-transition="slide" id="brbutton">Browse all movies</a>
+					</div>
+				</div>
+				
+				<!-- !Main Page Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" id="nav_footer_home">
+					<!-- Page Content "Browse Button" -->
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false" class="navbar" id="nav_home" >
+						<ul>
+							<li><a href="#Main" class="ui-btn-active">Home</a></li>
+							<li><a href="http://m.kissr.com">GH-Pages</a></li>
+							<li><a href="../Bronze/index.html">Bronze App</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
-		</section>
-		<section class="content">
-			<div id="searchstack">
-				<input type="search" class="search" name="s" id="s" placeholder="Search saved books..." results="5" autosave="search_history" />
-				<input type="submit" class="submit" value="Go" id="searchsub" />
+			<!-- End of Home Page -->
+			
+			
+			<!-- !Start of #AllMoviesBronze page -->
+			<div data-role="page" id="AllMovies_bronze" class="headerstyle" style="background-image:url(images/Screen.png)">
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false">
+					<h1>Movie Night</h1>
+				</div>
+				<!-- Page Content "CTA" -->
+				<div data-role="content">
+					<a href="#Main" data-rel="back" class="topbrowse">
+						<div>
+							<p class="function">In Theaters</p>
+							<h5 class="subfunction">or click here to go back</h5>
+						</div>
+					</a>
+				</div>
+				
+				<!-- Page Content "Narrow Browse Results by Type" -->
+				<div data-role="content" class="body">
+					<ul class="browse" data-role="listview" data-inset="true" data-dividertheme="b">
+						<li data-role="list-divider" class="listheader">Begin by picking a type...</li>
+						<li data-theme="c" class="genreli"><a href="#Genres" data-transition="slide" id="aBook">Book</a></li>
+						<li data-theme="c" class="genreli"><a href="#Genres" data-transition="slide" id="aEReader">E-Reader</a></li>
+						<li data-theme="c" class="genreli"><a href="#Genres" data-transition="slide" id="aTablet">Tablet</a></li>
+						<li data-theme="c" class="genreli"><a href="#Genres" data-transition="slide" id="aOnline">Online</a></li>
+					</ul>
+				</div>
+				
+				<!-- Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" id="nav_allmovies">
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false">
+						<ul>
+							<li><a href="#Main" data-transition="slide" data-direction="reverse">Home</a></li>
+							<li><a href="http://m.kissr.com">GH-Pages</a></li>
+							<li><a href="../Bronze/index.html">Bronze App</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
-			<div id="browsestack">
-				<li id="browse">What genre are you in the mood for?</li>
-				<li id="browsing"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Sci-Fi%2fFantasy">Science-Fiction</a></li>
-				<li id="browsing"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Sci-Fi%2fFantasy">Fantasy</a></li>
-				<li id="browsing"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Suspense%2fThriller">Thriller</a></li>
-				<li id="browsing"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Drama">Drama</a></li>
-				<li id="browsing"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Art+House%2fForeign">Indie</a></li>
-				<li id="browsing"><a href="http://www.fandango.com/moviesintheaters?GenreFilter=Action%2fAdventure">Action</a></li>
+			<!-- !End of #AllMoviesBronze page -->
+			
+			
+			<!-- !Start of #InTheaters page -->
+			<div data-role="page" id="InTheaters" class="headerstyle" style="background-image:url(images/Screen.png)">
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false">
+					<a href="#Main" data-transition="slide" data-direction="reverse" data-icon="back">Back</a>
+					<h1>Movie Night</h1>
+				</div>
+				<!-- Page Content "CTA" -->
+				<div data-role="content">
+					<a href="#Main" data-rel="back" class="topbrowse">
+						<div>
+							<p class="function">In Theaters</p>
+							<h5 class="subfunction">or click here to go back</h5>
+						</div>
+					</a>
+				</div>
+				
+				<!-- Page Content "View and Search Browse Results" -->
+				<div data-role="content" class="body">
+					<ul class="browse" data-role="listview" data-dividertheme="a" data-filter="true" id="resultlist">
+						<!-- List divider/header with dynamic links -->
+						<li data-role="list-divider" class="listheader" id="showbrwstype">
+							<span>Viewing: Movies in Theaters</span>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Movies/Anonymous.jpeg" class="showimg" alt="Movie Poster" />
+							<h3 class="showtitle">Anonymous</h3>
+							<p>
+								<span>Rated: PG-13</span>
+								<span> | </span>
+								<span>Runtime: 130 mins</span>
+							</p>
+							<p>
+								<span>Release: 2011-09-11</span>
+							</p>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Movies/BlackSwan.jpeg" class="showimg" alt="Movie Poster" />
+							<h3 class="showtitle">Black Swan</h3>
+							<p>
+								<span>Rated: R</span>
+								<span> | </span>
+								<span>Runtime: 108 mins</span>
+							</p>
+							<p>
+								<span>Release: 2010-12-02</span>
+							</p>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Movies/HotFuzz.jpeg" class="showimg" alt="Movie Poster" />
+							<h3 class="showtitle">Hot Fuzz</h3>
+							<p>
+								<span>Rated: R</span>
+								<span> | </span>
+								<span>Runtime: 121 mins</span>
+							</p>
+							<p>
+								<span>Release: 2007-02-14</span>
+							</p>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Movies/IronMan.jpeg" class="showimg" alt="Movie Poster" />
+							<h3 class="showtitle">Iron Man</h3>
+							<p>
+								<span>Rated: PG-13</span>
+								<span> | </span>
+								<span>Runtime: 126</span>
+							</p>
+							<p>
+								<span>Release: 2008-05-02</span>
+							</p>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Movies/Titanic.jpeg" class="showimg" alt="Movie Poster" />
+							<h3 class="showtitle">Titanic</h3>
+							<p>
+								<span>Rated PG-13</span>
+								<span> | </span>
+								<span>Runtime: 194</span>
+							</p>
+							<p>
+								<span>Release: 1997-12-19</span>
+							</p>
+						</li>
+					</ul>
+				</div>
+				
+				<!-- Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" id="nav_intheaters">
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false">
+						<ul>
+							<li><a href="#Main" data-transition="slide" data-direction="reverse">Home</a></li>
+							<li><a href="http://m.kissr.com">GH-Pages</a></li>
+							<li><a href="../Bronze/index.html">Bronze App</a></li>
+						</ul>
+					</div>
+				</div>
 			</div>
-		</section>
-		<script>
-			window.onload=scrollTo(0,1);
-		</script>
+			<!-- End of #InTheaters page -->
+			
+			
+			<!-- !Start of #AllMovies -->
+			<div data-role="page" id="AllMovies" class="headerstyle" style="background-image:url(images/Screen.png)">
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false">
+					<a href="#Main" data-transition="slide" data-direction="reverse" data-icon="back">Back</a>
+					<h1>Movie Night</h1>
+				</div>
+				<!-- Page Content "CTA" -->
+				<div data-role="content">
+					<a href="#Main" data-rel="back" class="topbrowse">
+						<div>
+							<p class="function">All Movies</p>
+							<h5 class="subfunction">or click here to go back</h5>
+						</div>
+					</a>
+				</div>
+				
+				<!-- Page Content "View and Search Browse Results" -->
+				<div data-role="content" class="body">
+					<div class="ui-grid-b" id="allmovieposters1">
+						<div class="ui-block-a"><img src="images/Movies/Anonymous.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-b"><img src="images/Movies/BlackSwan.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-c"><img src="images/Movies/HotFuzz.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-a"><img src="images/Movies/IronMan.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-b"><img src="images/Movies/Titanic.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-c"><img src="images/Movies/Anonymous.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-a"><img src="images/Movies/BlackSwan.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-b"><img src="images/Movies/HotFuzz.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-c"><img src="images/Movies/IronMan.jpeg" class="showimg" alt="Movie Poster" /></div>
+					</div>
+				</div>
+				
+				<!-- !#AllMovies Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" id="nav_allmovies">
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false">
+						<ul>
+							<li><a href="#Main" data-transition="slide" data-direction="reverse">Home</a></li>
+							<li><a href="http://m.kissr.com">GH-Pages</a></li>
+							<li><a href="../Bronze/index.html">Bronze App</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- !End of Index.html -->
+		
+		
+		<!-- JavaScript Links -->
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> 
+		<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
 	</body>
+<!-- End of Document -->
 </html>
