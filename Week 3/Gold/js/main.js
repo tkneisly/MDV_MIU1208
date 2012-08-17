@@ -1,7 +1,7 @@
-// Week 4, Project 4
+// Week 3, Project 3
 // David Tyler Kneisly
-// MUI 1206
-// Book Tracker
+// MUI 1208
+// Movie Night
 // Gold Main.JS
 
 // Wait until the DOM is ready
@@ -32,7 +32,7 @@ $('#showItems').bind('pagebeforechange', function(e, data){
 $(document).bind('pageinit', function(){
 
 	var
-	bookForm = $('#addbookform'),
+	bookForm = $('#addmovieform'),
 	errorslink = $('#errorslink'),
 	submittedlink = $('#submittedlink'),
 	allitemslink = $('#allitemslink'),
@@ -84,15 +84,16 @@ $(document).bind('pageinit', function(){
 		// Object properties contain an array with the form label and input values
 		var item = {};
 		item.groups = ['Group:', ge('groups').value];
-		item.titles = ['Title:', ge('booktitle').value];
-		item.authors = ['Author:', ge('author').value];
-		item.readpages = ['Pages:', ge('pages').value];
-		item.datefinished = ['Date Finished:', ge('date').value];
+		item.theaters = ['Theater:', ge('theatername').value];
+		item.movies = ['Movie:', ge('movie').value];
+		item.theaternums = ['Theater #:', ge('theaternum').value];
+		item.datevisited = ['Date Visited:', ge('date').value];
 		item.rating = ['Rating:', ge('rating').value];
 		item.category = ['Genre:', genreValue];
 		item.favs = ['Favorite:', favoriteValue];
 		item.note = ['Notes:', ge('notes').value];
 		localStorage.setItem(id, JSON.stringify(item));
+
 		// Data is saved into Local Storage
 		// alert('Book is saved!');
 	}	
@@ -178,7 +179,7 @@ $(document).bind('pageinit', function(){
 		if(localStorage.length >= 1) {
 			showData();
 		} else {
-			var chkData = confirm("No saved books. Create sample data?");
+			var chkData = confirm("No saved searches. Create sample data?");
 			autoFillData();
 			showData();
 		}
@@ -210,7 +211,7 @@ $(document).bind('pageinit', function(){
 		var editLink = document.createElement('a');
 		editLink.href = "#";
 		editLink.key = key;
-		var editText = "Edit Book";
+		var editText = "Edit Search";
 		editLink.addEventListener('click', editItem);
 		editLink.innerHTML = editText;
 		linksLi.appendChild(editLink);
@@ -223,7 +224,7 @@ $(document).bind('pageinit', function(){
 		var deleteLink = document.createElement('a');
 		deleteLink.href = "#";
 		deleteLink.key = key;
-		var deleteText = "Delete Book";
+		var deleteText = "Delete Search";
 		deleteLink.addEventListener('click', deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.appendChild(deleteLink);
@@ -249,7 +250,7 @@ $(document).bind('pageinit', function(){
 		// Fires when form is submitted and there are no validation errors
 		submitHandler: function() {
 			storeData(this.key);
-			resetForm($('#addbookform'));
+			resetForm($('#addmovieform'));
 		}
 	})
 	
