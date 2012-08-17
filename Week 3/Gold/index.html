@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!-- Week 3, Project 3 -->
+<!-- David Tyler Kneisly -->
+<!-- MUI 1208 -->
+<!-- Movie Night -->
+<!-- Gold Index.html -->
+
+<html lang="en">
+	<!-- HTML DOCUMENT HEADER -->
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="additem page for the Movie Night web app project for MIU 1208." />
+		<meta name="keywords" content="html5, mobile development, Full Sail University, Movies, Theaters, Rating, Tracker, Track" />
+		<meta name="robots" content="index, follow" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<meta name="HandHeldFriendly" content="True" />
+		<meta name="MobileOptimized" content="320" />
+		<meta name="author" content="David Tyler Kneisly" />
+		<title>David Kneisly:  Movie Night</title>
+		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" />
+		<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.min.css" /> 
+		<link href='http://fonts.googleapis.com/css?family=Henny+Penny|Contrail+One|Creepster|Bangers' rel='stylesheet' type='text/css'>
+		<link href="css/styles.css" rel="stylesheet" type="text/css" />
+		<script src="js/libs/modernizr.custom.min.js"></script>
+	</head>
+	
+	<!-- Document Body -->
+	<body>
+		<div>
+			<!-- !Start of Main Page -->
+			<div data-role="page" id="Main" class="headerstyle" style="background-image:url(images/Screen.png)">
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false">
+					<h1>Movie Night</h1>
+				</div>
+				
+				<!-- Page Content "CTA"-->
+				<div data-role="content">
+					<a href="additem.html" class="topbrowse" data-ajax="false">
+						<div>
+							<p class="function">Go to the Movies!</p>
+							<h5 class="subfunction">Click to find a friend for the movies</h5>
+						</div>
+					</a>
+					<div data-role="content" data-theme="b" class="topbrowse bottombrowse">
+						...or click below to browse
+						<a href="#InTheaters" data-role="button" data-theme="d" data-transition="slide" id="brbutton">Movies in theaters now</a>
+						<a href="#AllMovies" data-role="button" data-theme="d" data-transition="slide" id="brbutton">Browse all movies</a>
+					</div>
+				</div>
+				
+				<!-- !Main Page Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" id="nav_home">
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false">
+						<ul>
+							<li><a href="#Main" class="ui-btn-active">Home</a></li>
+							<li><a href="#AddEvent">New Event</a></li>
+							<li><a href="#About">About</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- End of Home Page -->
+			
+			
+			<!-- !Start of #InTheaters page -->
+			<div data-role="page" id="InTheaters" class="headerstyle">
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false">
+					<a href="#Main" data-transition="slide" data-direction="reverse" data-icon="back">Back</a>
+					<h1>Movie Night</h1>
+				</div>
+				
+				<!-- Page Content "View and Search Browse Results" -->
+				<div data-role="content" class="body">
+					<ul class="browse" data-role="listview" data-dividertheme="a" data-filter="true" id="resultlist">
+						<!-- List divider/header with dynamic links -->
+						<li data-role="list-divider" class="listheader">
+							<span>Movies in 2012</span>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Movies/Anonymous.jpeg" class="showimg" alt="Movie Poster" />
+							<h3 class="showtitle">Anonymous</h3>
+							<p>
+								<span>Rated: PG-13</span>
+								<span> | </span>
+								<span>Runtime: 130 mins</span>
+							</p>
+							<p>
+								<span>Release: 2012-09-11</span>
+							</p>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Movies/BlackSwan.jpeg" class="showimg" alt="Movie Poster" />
+							<h3 class="showtitle">Black Swan</h3>
+							<p>
+								<span>Rated: R</span>
+								<span> | </span>
+								<span>Runtime: 108 mins</span>
+							</p>
+							<p>
+								<span>Release: 2012-08-02</span>
+							</p>
+						</li>
+						<li data-role="list-divider" class="listheader">
+							<span>Movies in 2011</span>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Movies/IronMan.jpeg" class="showimg" alt="Movie Poster" />
+							<h3 class="showtitle">Iron Man</h3>
+							<p>
+								<span>Rated: PG-13</span>
+								<span> | </span>
+								<span>Runtime: 126</span>
+							</p>
+							<p>
+								<span>Release: 2011-05-02</span>
+							</p>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Movies/HotFuzz.jpeg" class="showimg" alt="Movie Poster" />
+							<h3 class="showtitle">Hot Fuzz</h3>
+							<p>
+								<span>Rated: R</span>
+								<span> | </span>
+								<span>Runtime: 121 mins</span>
+							</p>
+							<p>
+								<span>Release: 2011-02-14</span>
+							</p>
+						</li>
+						<li data-theme="c" class="resultli">
+							<img src="images/Movies/Titanic.jpeg" class="showimg" alt="Movie Poster" />
+							<h3 class="showtitle">Titanic</h3>
+							<p>
+								<span>Rated PG-13</span>
+								<span> | </span>
+								<span>Runtime: 194</span>
+							</p>
+							<p>
+								<span>Release: 2011-02-10</span>
+							</p>
+						</li>
+					</ul>
+				</div>
+				
+				<!-- Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" id="nav_intheaters">
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false">
+						<ul>
+							<li><a href="#Main">Home</a></li>
+							<li><a href="#AddEvent">New Event</a></li>
+							<li><a href="#About">About</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- End of #InTheaters page -->
+			
+			
+			<!-- !Start of #AllMovies -->
+			<div data-role="page" id="AllMovies">
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false">
+					<a href="#Main" data-transition="slide" data-direction="reverse" data-icon="back">Back</a>
+					<h1>Movie Night</h1>
+				</div>
+				
+				<!-- Page Content "View and Search Browse Results" -->
+				<div data-role="content" class="body">
+					<div class="ui-grid-b" id="allmovieposters1">
+						<div class="ui-block-a"><img src="images/Movies/Anonymous.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-b"><img src="images/Movies/BlackSwan.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-c"><img src="images/Movies/HotFuzz.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-a"><img src="images/Movies/IronMan.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-b"><img src="images/Movies/Titanic.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-c"><img src="images/Movies/Anonymous.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-a"><img src="images/Movies/BlackSwan.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-b"><img src="images/Movies/HotFuzz.jpeg" class="showimg" alt="Movie Poster" /></div>
+						<div class="ui-block-c"><img src="images/Movies/IronMan.jpeg" class="showimg" alt="Movie Poster" /></div>
+					</div>
+				</div>
+				
+				<!-- !#AllMovies Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" id="nav_allmovies">
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false">
+						<ul>
+							<li><a href="#Main">Home</a></li>
+							<li><a href="#AddEvent">New Event</a></li>
+							<li><a href="#About">About</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- !End of #AllMovies -->
+			
+			
+			<!-- !Start of About Page -->
+			<div data-role="page" id="About">
+				<!-- Header -->
+				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false">
+					<h1>Movie Night</h1>
+				</div>
+				
+				<!-- List Inlay (Accordian List) -->
+				<div data-role="collapsible-set" data-icon="arrow-u">
+					<div data-role="collapsible" data-collapsed="true">
+						<h3>Want to go to the movies?</h3>
+						<p>Was there ever a movie you wanted to go see, in the spur of the moment, but none of your friends were able to go with you?</p>
+						<p>Or maybe there was a big movie event, like a premier, and you wanted to go even though you had no one to go with?</p>
+						<p>"Movie Night" is a social-search app that helps connect people who want to go to the movies, right now!  Just set the types of friends you prefer, and your taste in movies, and the app will find make the connection for you!</p>
+					</div>
+					<div data-role="collapsible" data-collapsed="true">
+						<h3>How does the app work?</h3>
+						<p>The app works two ways:</p>
+						<p>First, it can work from a saved search.  Just set your preferences, and the app will find other registered users in your preferred area who are also looking to see similar movies with similar groups of people.  When the app makes a match, all the matched users get an alert with the movie, time, location, and a unique Twitter hash tag.</p>
+						<p>Second, by browsing movies from the home screen, you can pick a movie you want to see.  The movie you want to see can be a movie in theaters now, or a future release.  30 minutes before the movie starts, Movie Night will let you know how many other Movie Night users are at your chosen movie, and will provide you and those users with a unique Twitter hash tag</p>
+					</div>
+					<div data-role="collapsible" data-collapsed="true">
+						<h3>What's with the Twitter hash tag?</h3>
+						<p>The Twitter hash tag is a way for users to organize with each other after they're matched together for a movie.</p>
+						<p>Once a match is made, users can use the Twitter tag to pick a meeting place, or figure out how to get great seats. Or whatever!</p>
+						<p>Keep in mind!  Tweets are public, so don't share any reallly personal information.  Also, always be cautious when meeting new people!</p>
+						<p>Just sayin'!</p>
+					</div>
+					<div data-role="collapsible" data-collapsed="true">
+						<h3>How can I reach the developer?</h3>
+						<p>Email is always best:</p>
+						<p><a href="mailto:dev@pinchnetworks.com">Dev@PinchNetworks.com</a></p>
+						<p>Of course, our feelings wouldn't be hurt one bit if you want to leave us a nice review</p>
+					</div>
+				</div>
+				
+				<!-- !About Page Footer -->
+				<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" id="nav_about">
+					<div data-role="navbar" data-position="fixed" data-tap-toggle="false">
+						<ul>
+							<li><a href="#Main">Home</a></li>
+							<li><a href="#AddEvent">New Event</a></li>
+							<li><a href="#About">About</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- End of About Page -->
+			
+		</div>
+		<!-- !End of Index.html -->
+		
+		
+		<!-- JavaScript Links -->
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> 
+		<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.core.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jqm-datebox.mode.calbox.min.js"></script>
+		<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i18n/jquery.mobile.datebox.i18n.en_US.utf8.js"></script>
+		<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+<!-- End of Document -->
+</html>
