@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<!-- Week 3, Project 3 -->
+<!-- Week 4, Project 4 -->
 <!-- David Tyler Kneisly -->
 <!-- MIU 1208 -->
 <!-- Movie Night -->
+<!-- Gold additem.html -->
+
 <html lang="en">
 	<!-- HTML DOCUMENT HEADER -->
 	<html lang="en">
@@ -37,49 +39,68 @@
 				<!-- Start of the Form -->
 				<div>
 					<p id="notify">*required fields</p>
-					<form action="#addItem" method="post" id="addmovieform">
-						<!-- Pick a Group / Type -->
+					<form action="#addItem" method="post" id="addItem">
+						
+						<!-- Pick a Group Type -->
 						<div data-role="fieldcontain">
 							<label for="groups">Group Type</label>
 							<select name="groups" id="groups" data-native-menu="false" >
-								<option value="PickOne" data-placeholder="true">Pick one</option>
-								<option value="LgGroup" class="option_btn" >Large Group</option>
+								<option value="PickOne" data-placeholder="true">Choose a group type</option>
+								<option value="LgGroup" class="option_btn">Large Group</option>
 								<option value="SmGroup" class="option_btn">Small Group</option>
-								<option value="FindFriend" class="option_btn" >Find a Friend</option>
+								<option value="FindFriend" class="option_btn" >Find a Buddy</option>
 								<option value="FindDate" class="option_btn" >Find a Date</option>
 							</select>
 						</div>
-						<!-- Enter the Theater -->
+						
+						<!-- Pick a Date -->
 						<div data-role="fieldcontain">
-							<span>*<label for="theater" class="reqlabel">*Theater</label></span>
-							<input type="text" name="theater" id="theater" placeholder="Hollywood 20" class="required" />
-						</div>
-						<!-- Enter the Movie -->
-						<div data-role="fieldcontain">
-							<span>*<label for="movie" class="reqlabel">*Movie</label></span>
-							<input type="text" name="movie" id="movie" placeholder="The Last Samurai" class="required" />
-						</div>
-						<!-- Enter the Theater Number -->
-						<div data-role="fieldcontain">
-							<span>*<label for="theaternum" class="reqlabel">*Theater #</label></span>
-							<input type="number" name="theaternum" id="theaternum" placeholder="6" class="required number" />
-						</div>
-						<!-- Enter the Finished-by Date -->
-						<div data-role="fieldcontain">
-							<label for="date">*Date Going</label>
+							<label for="date">*Pick a Date</label>
 							<input type="date" name="date" id="date" placeholder="06/01/2012" data-role="datebox" data-options='{"mode": "calbox"}' />
 						</div>
-						<!-- Enter Range for Rating -->
-						<div data-role="fieldcontain">
-							<label for="rating" class="blocklabel">Theater Rating?</label>
-							<input type="range" name="rating" id="rating" value="5" min="0" max="10" />
+						
+						<!-- Location -->
+						<div data-role="fieldcontain" class="loc-search">
+							
+							<!-- Zip Input -->
+							<div class="zip-wrap">
+								<span><label for="zip" class="reqlabel loclabel">*Enter Zip</label></span>
+								<input type="text" pattern="[0-9]*" name="zip" id="zip" placeholder="90210" class="required"/>
+							</div>
+							
+							<!-- City - Read only -->
+							<div class="city-wrap">
+								<span><label for="city" class="reqlabel loclabel">City</label></span>
+								<input type="text" name="city" class="zip-reply" id="city" placeholder="Beverly Hills" readonly="readonly"/>
+							</div>
+							
+							<!-- State - Read only -->
+							<div class="state-wrap">
+								<span><label for="state" class="reqlabel loclabel">State</label></span>
+								<input type="text" name="state" class="zip-reply" id="state" placeholder="CA" readonly="readonly"/>
+							</div>
+							
+							<!-- User Prompt -->
+							<div class="prompt-wrap">
+								<span><p class="zip-prompt" id="zip-prompt">Are city and state close?</p></span>
+								<span><p class="zip-prompt">If not, please re-enter your zip.</p></span>
+							</div>
 						</div>
+						
+						<!-- Enter Range for Distance -->
+						<div data-role="fieldcontain">
+							<label for="rating" style="display: block;">Theater Distance</label>
+							<input type="range" name="distance" id="distance" value="30" min="10" max="50" step="10" />
+						</div>
+						
 						<!-- Select Radio for Genre -->
 						<div data-role="fieldcontain">
 							<fieldset data-role="controlgroup" name="genre" id="genre">
-							<span>*<label for="genre" class="reqlabel">What movie genre?</label></span>
+							<span><label for="genre" class="reqlabel">What movie genre?</label></span>
 								<legend>Genre</legend>
-								<input type="radio" value="Science-Fiction" name="genre" id="Science-Fiction" class="required" />
+								<input type="radio" value="Action" name="genre" id="Action" class="required" />
+								<label for="Action">Action</label>
+								<input type="radio" value="Science-Fiction" name="genre" id="Science-Fiction" />
 								<label for="Science-Fiction">Science-Fiction</label>
 								<input type="radio" value="Fantasy" name="genre" id="Fantasy" />
 								<label for="Fantasy">Fantasy</label>
@@ -88,25 +109,48 @@
 								<input type="radio" value="Drama" name="genre" id="Drama" />
 								<label for="Drama">Drama</label>
 								<input type="radio" value="Indie" name="genre" id="Indie" />
-								<label for="Indie">Indie</label>
-								<input type="radio" value="Action" name="genre" id="Action" />
-								<label for="Action">Action</label>
+								<label for="Indie">Indie / Art House</label>
 							</fieldset>
 						</div>
+						
+						<!-- Deprecated -->
+						<!--
+						Enter the Theater
+						<div data-role="fieldcontain">
+							<span><label for="theater" class="reqlabel">*Theater</label></span>
+							<input type="text" name="theater" id="theater" placeholder="Hollywood 20" class="required" />
+						</div>
+						
+						Enter the Movie
+						<div data-role="fieldcontain">
+							<span><label for="movie" class="reqlabel">*Movie</label></span>
+							<input type="text" name="movie" id="movie" placeholder="The Last Samurai" class="required" />
+						</div>		
+						
+						Enter the Theater Number
+						<div data-role="fieldcontain">
+							<span><label for="theaternum" class="reqlabel">*Theater #</label></span>
+							<input type="number" name="theaternum" id="theaternum" placeholder="6" class="required number" />
+						</div>
+						-->
+						<!-- End Deprecated Fields -->
+						
 						<!-- Select Favorite Checkbox -->
 						<div data-role="fieldcontain" class="formslider">
-							<label for="favorite" class="blocklabel">Add theater to favorites?</label>
+							<label for="favorite" style="display: block;">Add search to favorites?</label>
 							<select data-role="slider" id="favorite" data-inline="false" >
-								<option value="off" selected="selected">Not a favorite</option>
-								<option value="on">Added to favorites</option>
+								<option value="off" selected="selected">No</option>
+								<option value="on">Yes</option>
 							</select>
 						</div>
+						
 						<!-- Notes Area -->
 						<div data-role="fieldcontain">
 							<label for="notes">Notes</label>
 							<textarea id="notes"></textarea>
 						</div>
 						
+						<!-- !Form Controls -->
 						<div id="formcontrols">
 							<!-- Submit Button -->
 							<div data-role="fieldcontain" id="fieldsubmit">
@@ -119,13 +163,13 @@
 							</div>
 							
 						</div>
-						<!-- Hidden Event Links -->
+						<!-- !Hidden Event Links -->
 						<a href="#geterrors" id="errorslink" data-rel="dialog" data-transition="none" visible="none">Open Errors Dialog</a>
 						<a href="#allclear" id="clearall" data-rel="dialog" data-transition="none" visible="none">Form Reset Dialog</a>
 					</form>
 				</div>
 			</div>
-			<!-- Footer -->
+			<!-- !Add Item Footer -->
 			<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" class="nav_footer" id="nav_footer_additem">
 				<div data-role="navbar" data-position="fixed" data-tap-toggle="false" class="navbar" id="navbar_additems">
 					<ul>
@@ -136,7 +180,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- Start of allitems.html -->
+		<!-- !Start of allitems -->
 		<div data-role="page" id="showItems"">
 			<!-- Header -->
 			<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false" class="header">
@@ -146,7 +190,8 @@
 			<div data-role="content" class="body results" id="dynamicdata">
 				
 			</div>
-			<!-- Footer -->
+			
+			<!-- !Allitems Footer -->
 			<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" class="nav_footer" id="nav_footer_additem">
 				<div data-role="navbar" data-position="fixed" data-tap-toggle="false" class="navbar" id="navbar_additems">
 					<ul>
@@ -156,6 +201,7 @@
 					</ul>
 				</div>
 			</div>
+			
 			<!-- Form Validation Pop-up -->
 			<div data-role="dialog" id="geterrors" class="userdialog">
 			

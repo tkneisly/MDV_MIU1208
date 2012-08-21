@@ -1,7 +1,7 @@
-// Week 1, Project 1
+// Week 3, Project 3
 // David Tyler Kneisly
-// MUI 1206
-// Book Tracker (JSON.js)
+// MUI 1208
+// Movie Night (JSON.js)
 
 var json = {
 	"book01": {

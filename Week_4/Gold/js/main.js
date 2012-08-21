@@ -26,7 +26,59 @@ $('#showItems').bind('pagebeforechange', function(e, data){
 	window.location.reload();
 	
 });
+// The below script is loaded into DOM when #InTheaters is initialized
+$("#InTheaters").bind('pageinit', function(){
 
+
+	function getInTheaters() {
+		var getCurrentList = function() {
+			$.ajax({
+				url: "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?page_limit=21&page=1&country=us&apikey=4w9q8m4wrs7nfxkczfycacum",
+				cache:false,
+				dataType: "json",
+				type: "GET",
+				data:
+			})
+		},
+		getListMovies = getCurrentList.
+		pageTag = $("#InTheaters").getElementById("InTheaterResults"),
+		makeListItem = $("#InTheaters").createElement("li");
+		makeListItem.setAttribute("data-theme", "c");
+		makeListItem.setAttribute("class", "resultli")
+		
+		
+	}
+	
+	<li data-theme="c" class="resultli">
+		<img src="images/Movies/Anonymous.jpeg" class="showimg" alt="Movie Poster" />
+		<h3 class="showtitle">Anonymous</h3>
+		<p>
+			<span>Rated: PG-13</span>
+			<span> | </span>
+			<span>Runtime: 130 mins</span>
+		</p>
+		<p>
+			<span>Release: 2012-09-11</span>
+		</p>
+	</li>
+	
+	function makeCats () {
+		var formTag = document.getElementsByTagName('form'),
+		// This will become an array of all the form tags in the additem.html doc.
+		selectLi = ge('select'),
+		makeSelect = document.createElement('select');
+		makeSelect.setAttribute('id', 'groups');
+		for (var i=0, j=theaterGroups.length; i < j; i++) {
+			var makeOption = document.createElement('option');
+			var optText = theaterGroups[i];
+			makeOption.setAttribute('value', optText);
+			makeOption.innerHTML = optText;
+			makeSelect.appendChild(makeOption);
+		}
+		selectLi.appendChild(makeSelect);
+	}
+	
+})
 
 // The below script is loaded into DOM when addItem.html is initialized
 $(document).bind('pageinit', function(){
@@ -34,7 +86,7 @@ $(document).bind('pageinit', function(){
 	var
 	bookForm = $('#addmovieform'),
 	errorslink = $('#errorslink'),
-	submittedlink = $('#submittedlink'),
+	submittedlink = $('#submitted	link'),
 	allitemslink = $('#allitemslink'),
 	favorite = $('#favorite'),
 	genreValue,
@@ -42,6 +94,36 @@ $(document).bind('pageinit', function(){
 	level,
 	favoriteValue = "No"
 	;
+	
+	$(".loc-search div").hide();
+	
+	$("#zip").keyup(function() {
+		var el = $(this);
+		if ((el.val().length == 5) && (is_int(el.val()))) {
+			$.ajax({
+				url: "http://zip.elevenbasetwo.com",
+				cache: false,
+				dataType: "json",
+				type: "GET",
+				data: "zip=" + el.val(),
+				success: function(result, success) {
+					$(".loc-search div").slideDown();
+					$("#city").val(result.city);
+					$("#state").val(result.state);
+				}
+			})
+		} else if (el.val().length <5) {
+			$(".loc-search div").hide();
+		}
+	})
+	
+	function is_int(value){
+		if((parseFloat(value) == parseInt(value)) && !isNaN(value)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	// Get Element ID's
 	// jQuery Mobile method will also work

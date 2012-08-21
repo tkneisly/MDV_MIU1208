@@ -1,5 +1,5 @@
 /*
- * Week 3, Project 3 
+ * Week 4, Project 4 
  * David Tyler Kneisly 
  * MUI 1208
  * Movie Night
@@ -8,15 +8,15 @@
  
 h1 {
 	/* Font for .ui-header */
-	/*font-family: 'Rancho', cursive;*/
+	font-family: 'Henny Penny', cursive;
 	font-size: 20px;
 	color: #2a2a2a;
 	text-shadow: 1px 1px 1px #fff;
 }
 a {
-    outline: none;
-    color: black;
-    text-decoration: none;
+	outline: none;
+	color: black;
+	text-decoration: none;
 }
 p.function {
 	font-family: 'Henny Penny', cursive;
@@ -56,11 +56,26 @@ h5 {
 	text-align: center;
 }
 .bottombrowse {
-margin: 0px -15px 0px -15px;
-padding-top: -10px;
-padding-bottom: 40px;
+	margin: 0px -15px 0px -15px;
+	padding-top: -10px;
+	padding-bottom: 40px;
+}
+.loclabel {
+	margin-top: 10px !important;
+}
+.zip-wrap {
+	display: block !important;
+}
+.zip-prompt {
+	font-size: smaller;
+	font-style: oblique;
+	text-align: center;
+	margin: 3px 0px 1px 0px;
+}
+.zip-reply {
+	color: #9a9a9a;
 }
 .ui-grid-b img {
-    width  : 100%;
-    height : auto;
+	width  : 100%;
+	height : auto;
 }

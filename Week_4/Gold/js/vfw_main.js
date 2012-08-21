@@ -2,6 +2,7 @@
 // David Tyler Kneisly
 // VFW 1205
 // Book Tracker
+// Reference JS for MIU 1208 Project
 
 // Wait until the DOM is ready
 window.addEventListener('DOMContentLoaded', function() {
