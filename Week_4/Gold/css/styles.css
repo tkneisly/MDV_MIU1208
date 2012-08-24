@@ -41,11 +41,11 @@ h5 {
 	/* Positions the background image and sets the background color */
 	margin-top: 0px;
 	background-repeat: no-repeat;
-	background-attachment: fixed;
+	background-attachment: scroll;
 	background-position-x: center;
 	background-position-y: 0px;
 	background-size: 125% 65%;
-	background-color: #9a9a9a;
+	background-color: #343131;
 }
 .bodystyle {
 	/* Sets the style for pages with no background image */
@@ -56,6 +56,9 @@ h5 {
 	text-align: center;
 }
 .bottombrowse {
+	-moz-box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+	-webkit-box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+	box-shadow: 0 0 1em rgba(0, 0, 0, .5);
 	margin: 0px -15px 0px -15px;
 	padding-top: -10px;
 	padding-bottom: 40px;
@@ -78,4 +81,43 @@ h5 {
 .ui-grid-b img {
 	width  : 100%;
 	height : auto;
+}
+.deep-btn {
+	-moz-box-shadow: 0 0 1em rgba(0, 0, 0, .5) !important;
+	-webkit-box-shadow: 0 0 1em rgba(0, 0, 0, .5) !important;
+	box-shadow: 0 0 1em rgba(0, 0, 0, .5) !important;
+}
+.btn-active {
+	background: -webkit-gradient( linear, left bottom, left top, color-stop(0,#9c1d1f), color-stop(1, #b91d22) ) !important;
+	background: -moz-linear-gradient( center bottom, #9c1c1f 0%, #b91d22 100% ) !important;
+	color: white;
+	text-shadow: 1px 1px 1px black;
+	
+}
+#fieldreset > .ui-submit {
+	background: -webkit-gradient( linear, left bottom, left top, color-stop(0,#9c1d1f), color-stop(1, #b91d22) ) !important;
+	background: -moz-linear-gradient( center bottom, #9c1c1f 0%, #b91d22 100% ) !important;
+	color: white;
+	text-shadow: 1px 1px 1px black;
+}
+.ui-navbar {
+	-moz-box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+	-webkit-box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+	box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+	height: 35px;
+	padding: 0;
+}
+.ui-header {
+	-moz-box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+	-webkit-box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+	box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+	padding: 0;
+}
+.ui-datebox-container h1 {
+	color: white;
+	text-shadow: none;
+}
+#notify {
+	color: #9c1d1f;
+	text-align: center;
 }

@@ -11,80 +11,11 @@ var parseBookForm = function(itm){
 	console.log(localStorage);
 };
 
-$('#showItems').bind('pagebeforechange', function(e, data){
-	
-	if(typeof data.toPage === "string" ) {
-		var a = $.mobile.path.parseUrl(data.toPage),
-			re = /^#category-item/;
-		if (a.hash.search(re) !== -1) {
-			showCategory(a, data.options);
-			e.preventDefault();
-		}
-	}
-	//checkUserData();
-	//alert("JS has loaded");
-	window.location.reload();
-	
-});
-// The below script is loaded into DOM when #InTheaters is initialized
-$("#InTheaters").bind('pageinit', function(){
-
-
-	function getInTheaters() {
-		var getCurrentList = function() {
-			$.ajax({
-				url: "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/in_theaters.json?page_limit=21&page=1&country=us&apikey=4w9q8m4wrs7nfxkczfycacum",
-				cache:false,
-				dataType: "json",
-				type: "GET",
-				data:
-			})
-		},
-		getListMovies = getCurrentList.
-		pageTag = $("#InTheaters").getElementById("InTheaterResults"),
-		makeListItem = $("#InTheaters").createElement("li");
-		makeListItem.setAttribute("data-theme", "c");
-		makeListItem.setAttribute("class", "resultli")
-		
-		
-	}
-	
-	<li data-theme="c" class="resultli">
-		<img src="images/Movies/Anonymous.jpeg" class="showimg" alt="Movie Poster" />
-		<h3 class="showtitle">Anonymous</h3>
-		<p>
-			<span>Rated: PG-13</span>
-			<span> | </span>
-			<span>Runtime: 130 mins</span>
-		</p>
-		<p>
-			<span>Release: 2012-09-11</span>
-		</p>
-	</li>
-	
-	function makeCats () {
-		var formTag = document.getElementsByTagName('form'),
-		// This will become an array of all the form tags in the additem.html doc.
-		selectLi = ge('select'),
-		makeSelect = document.createElement('select');
-		makeSelect.setAttribute('id', 'groups');
-		for (var i=0, j=theaterGroups.length; i < j; i++) {
-			var makeOption = document.createElement('option');
-			var optText = theaterGroups[i];
-			makeOption.setAttribute('value', optText);
-			makeOption.innerHTML = optText;
-			makeSelect.appendChild(makeOption);
-		}
-		selectLi.appendChild(makeSelect);
-	}
-	
-})
-
 // The below script is loaded into DOM when addItem.html is initialized
 $(document).bind('pageinit', function(){
 
 	var
-	bookForm = $('#addmovieform'),
+	bookForm = $('#addMovie'),
 	errorslink = $('#errorslink'),
 	submittedlink = $('#submitted	link'),
 	allitemslink = $('#allitemslink'),
@@ -230,30 +161,6 @@ $(document).bind('pageinit', function(){
 		
 		makeDiv.appendChild(makeList);
 		startDiv.appendChild(makeDiv);
-		// Below for-loop looks in Local Storage for data
-		/*
-		for (var i=0, l=localStorage.length; i < l; i++) {
-			var makeLi = document.createElement('li');
-			var linksLi = document.createElement('li');
-			makeList.appendChild(makeLi);
-			var key = localStorage.key(i);
-			var value = localStorage.getItem(key);
-			// Below variable converts the string from Local Storage back into an object
-			var obj = JSON.parse(value);
-			// Below variable and for-loop creates a sub-list and appends to the above list (li)
-			var makeSubList = document.createElement('ul');
-			makeLi.appendChild(makeSubList);
-			getImage(obj.groups[1], makeSubList);
-			for (var n in obj) {
-				var makeSubLi = document.createElement('li');
-				makeSubList.appendChild(makeSubLi);
-				var optSubText = obj[n][0]+" "+obj[n][1];
-				makeSubLi.innerHTML = optSubText;
-				makeSubList.appendChild(linksLi);
-			}
-			// Below function creates Edit and Delete buttons
-			makeItemLinks(localStorage.key(i), linksLi);
-		}*/
 	}
 	
 	function checkUserData() {
@@ -332,7 +239,7 @@ $(document).bind('pageinit', function(){
 		// Fires when form is submitted and there are no validation errors
 		submitHandler: function() {
 			storeData(this.key);
-			resetForm($('#addmovieform'));
+			resetForm($('#addMovie'));
 		}
 	})
 	

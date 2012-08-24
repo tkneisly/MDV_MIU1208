@@ -31,7 +31,7 @@
 		<div data-role="page" id="addItem">
 			<!-- Header -->
 				<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false">
-					<a href="#Main" data-transition="slide" data-direction="reverse" data-icon="back">Back</a>
+					<a href="index.html" data-transition="slideup" data-direction="reverse" data-icon="back">Back</a>
 					<h1>Movie Night</h1>
 				</div>
 			<!-- 'Add Item' Form -->
@@ -39,7 +39,7 @@
 				<!-- Start of the Form -->
 				<div>
 					<p id="notify">*required fields</p>
-					<form action="#addItem" method="post" id="addItem">
+					<form action="#addItem" method="post" id="addMovie">
 						
 						<!-- Pick a Group Type -->
 						<div data-role="fieldcontain">
@@ -48,8 +48,8 @@
 								<option value="PickOne" data-placeholder="true">Choose a group type</option>
 								<option value="LgGroup" class="option_btn">Large Group</option>
 								<option value="SmGroup" class="option_btn">Small Group</option>
-								<option value="FindFriend" class="option_btn" >Find a Buddy</option>
-								<option value="FindDate" class="option_btn" >Find a Date</option>
+								<option value="FindFriend" class="option_btn">Find a Buddy</option>
+								<option value="FindDate" class="option_btn">Find a Date</option>
 							</select>
 						</div>
 						
@@ -113,28 +113,6 @@
 							</fieldset>
 						</div>
 						
-						<!-- Deprecated -->
-						<!--
-						Enter the Theater
-						<div data-role="fieldcontain">
-							<span><label for="theater" class="reqlabel">*Theater</label></span>
-							<input type="text" name="theater" id="theater" placeholder="Hollywood 20" class="required" />
-						</div>
-						
-						Enter the Movie
-						<div data-role="fieldcontain">
-							<span><label for="movie" class="reqlabel">*Movie</label></span>
-							<input type="text" name="movie" id="movie" placeholder="The Last Samurai" class="required" />
-						</div>		
-						
-						Enter the Theater Number
-						<div data-role="fieldcontain">
-							<span><label for="theaternum" class="reqlabel">*Theater #</label></span>
-							<input type="number" name="theaternum" id="theaternum" placeholder="6" class="required number" />
-						</div>
-						-->
-						<!-- End Deprecated Fields -->
-						
 						<!-- Select Favorite Checkbox -->
 						<div data-role="fieldcontain" class="formslider">
 							<label for="favorite" style="display: block;">Add search to favorites?</label>
@@ -150,73 +128,61 @@
 							<textarea id="notes"></textarea>
 						</div>
 						
-						<!-- !Form Controls -->
 						<div id="formcontrols">
 							<!-- Submit Button -->
 							<div data-role="fieldcontain" id="fieldsubmit">
-								<input type="submit" value="Save your search" id="submit" data-theme="a"/>
+								<input type="submit" value="Save your book" id="submit" data-theme="a"/>
 							</div>
 							
 							<!-- Reset Button (DOM) -->
-							<div>
-								<a href="#" id="resetbtn" class="reset">Reset the form</a>
+							<div data-role="fieldcontain" id="fieldreset">
+								<input type="reset" value="Reset the form" id="reset" class="reset" />
 							</div>
 							
 						</div>
-						<!-- !Hidden Event Links -->
-						<a href="#geterrors" id="errorslink" data-rel="dialog" data-transition="none" visible="none">Open Errors Dialog</a>
-						<a href="#allclear" id="clearall" data-rel="dialog" data-transition="none" visible="none">Form Reset Dialog</a>
+						<!-- Hidden Event Links -->
+						<a href="#geterrors" id="errorslink" data-rel="dialog" data-transition="none" style="display: none;">Open Errors Dialog</a>
+						<a href="#allclear" id="clearall" data-rel="dialog" data-transition="none" style="display: none;">Form Reset Dialog</a>
 					</form>
 				</div>
 			</div>
-			<!-- !Add Item Footer -->
+			<!-- Footer -->
 			<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" class="nav_footer" id="nav_footer_additem">
 				<div data-role="navbar" data-position="fixed" data-tap-toggle="false" class="navbar" id="navbar_additems">
 					<ul>
 						<li><a href="index.html" data-transition="slideup" data-direction="reverse">Home</a></li>
 						<li><a href="#" class="reset">Clear Form</a></li>
-						<li><a href="#allItems" class="viewall" id="allitemslink" data-transition="slide">View All</a></li>
+						<li><a href="allitems.html" class="viewall" data-transition="slide">View All</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-		<!-- !Start of allitems -->
-		<div data-role="page" id="showItems"">
-			<!-- Header -->
-			<div data-role="header" data-id="header" data-theme="c" data-position="fixed" data-tap-toggle="false" class="header">
-				<h1>Movie Night</h1>
+		<!-- Form Validation Pop-up -->
+		<div data-role="dialog" id="geterrors" class="userdialog">
+		
+			<div data-role="header" data-position="fixed">
+				<h1>Something's Missing!</h1>
 			</div>
-			<!-- 'Add Item' Form -->
-			<div data-role="content" class="body results" id="dynamicdata">
-				
-			</div>
-			
-			<!-- !Allitems Footer -->
-			<div data-role="footer" data-id="footer" data-position="fixed" data-theme="d" data-tap-toggle="false" class="nav_footer" id="nav_footer_additem">
-				<div data-role="navbar" data-position="fixed" data-tap-toggle="false" class="navbar" id="navbar_additems">
-					<ul>
-						<li><a href="index.html" data-transition="slideup" data-direction="reverse">Home</a></li>
-						<li><a href="#clearstore" class="reset">Clear All</a></li>
-						<li><a href="#showItems">View All</a></li>
-					</ul>
-				</div>
-			</div>
-			
-			<!-- Form Validation Pop-up -->
-			<div data-role="dialog" id="geterrors" class="userdialog">
-			
-				<div data-role="header" data-position="fixed">
-					<h1>Something's Missing!</h1>
-				</div>
-						
-				<div data-role="content">
-					<ul>
-						<li>This will be replaced on actual validation.</li>
-					</ul>
-					<a href="#addItem" data-role="button" data-mini="true">Ok, I'll fix it!</a>
-				</div>
+					
+			<div data-role="content">
+				<ul>
+					<li>This will be replaced on actual validation.</li>
+				</ul>
+				<a href="#addItem" data-role="button" data-mini="true">Ok, I'll fix it!</a>
 			</div>
 		</div>
+		<!-- Reset Completed Pop-up -->
+		<div data-role="dialog" id="allclear" class="userdialog">
+		
+			<div data-role="header" data-position="fixed">
+				<h1>All clear!</h1>
+			</div>
+			
+			<div data-role="content">
+				<p>The form has been reset</p>
+				<a href="#addItem" data-role="button" data-mini="true">Ok!</a>
+			</div>
+		</div>		
 		<!-- JavaScript Links -->
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> 
 		<script type="text/javascript" src="http://code.jquery.com/mobile/latest/jquery.mobile.min.js"></script>
@@ -226,10 +192,4 @@
 		<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
-	<!-- Image References & Sources -->
-		<!-- Original source for Book image: http://www.glossyicon.com/wp-content/uploads/2009/05/old-book.jpg -->
-		<!-- Original source for Tablet image: http://www.webdesignhot.com/wp-content/uploads/2011/10/Vector-Apple-iPad-2-Preview-2.jpg -->
-		<!-- Original source for EReader image:  http://psdlist.com/gadget/443/amazon-kindle-psd-file.html -->
-		<!-- Original source for Online image:  http://mob-arts.com/blog/wp-content/uploads/2010/03/100313_iMac.jpg -->
-<!-- End of Document -->
 </html>
